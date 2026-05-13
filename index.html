@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiago Correia – Product Owner &amp; IT Project Manager</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #f0f4f8;
+    color: #1e293b;
+    line-height: 1.6;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e40af 55%, #0ea5e9 100%);
+    color: #fff;
+    padding: 56px 32px 48px;
+    text-align: center;
+  }
+
+  .avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    border: 3px solid rgba(255,255,255,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin: 0 auto 20px;
+    color: #fff;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+
+  .hero .subtitle {
+    font-size: 1.05rem;
+    color: #bfdbfe;
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+
+  .hero-contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: #e0f2fe;
+  }
+
+  .hero-contacts a {
+    color: #e0f2fe;
+    text-decoration: none;
+  }
+
+  .hero-contacts a:hover { color: #fff; }
+
+  /* MAIN CONTENT */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  /* CARD */
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
+    padding: 32px;
+  }
+
+  .card h2 {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: #3b82f6;
+    margin-bottom: 22px;
+  }
+
+  /* ABOUT */
+  .about p {
+    color: #374151;
+    font-size: 0.97rem;
+    line-height: 1.75;
+  }
+
+  /* CORE STRENGTHS */
+  .strengths-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .strengths-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.93rem;
+    color: #374151;
+    line-height: 1.55;
+  }
+
+  .strengths-list li::before {
+    content: "▸";
+    color: #3b82f6;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: #e2e8f0;
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 32px;
+  }
+
+  .tl-item:last-child { margin-bottom: 0; }
+
+  .tl-dot {
+    position: absolute;
+    left: -24px;
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px #3b82f6;
+    background: #3b82f6;
+  }
+
+  .tl-dot.prev {
+    background: #94a3b8;
+    box-shadow: 0 0 0 2px #94a3b8;
+  }
+
+  .tl-meta {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-bottom: 3px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .tl-role {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e293b;
+  }
+
+  .tl-company {
+    font-size: 0.88rem;
+    color: #3b82f6;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .tl-desc ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .tl-desc ul li {
+    font-size: 0.88rem;
+    color: #4b5563;
+    line-height: 1.55;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .tl-desc ul li::before {
+    content: "·";
+    position: absolute;
+    left: 0;
+    color: #94a3b8;
+    font-weight: 700;
+  }
+
+  /* EDUCATION */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+  }
+
+  .edu-item {
+    background: #f8fafc;
+    border-left: 3px solid #3b82f6;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 16px;
+  }
+
+  .edu-year {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .edu-degree {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 3px;
+    line-height: 1.4;
+  }
+
+  .edu-institution {
+    font-size: 0.8rem;
+    color: #64748b;
+  }
+
+  /* TOOLS */
+  .tools-section {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .tool-group-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #94a3b8;
+    margin-bottom: 8px;
+  }
+
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .tag {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: default;
+    transition: background 0.15s;
+  }
+
+  .tag:hover { background: #dbeafe; }
+
+  .tag.muted {
+    background: #f1f5f9;
+    color: #475569;
+  }
+
+  .tag.muted:hover { background: #e2e8f0; }
+
+  /* LANGUAGES */
+  .lang-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+
+  .lang-item {
+    text-align: center;
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 16px 12px;
+  }
+
+  .lang-name {
+    font-size: 0.87rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 4px;
+  }
+
+  .lang-level {
+    font-size: 0.78rem;
+    color: #3b82f6;
+    font-weight: 500;
+  }
+
+  /* ADDITIONAL INFO */
+  .additional-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 11px;
+  }
+
+  .additional-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #374151;
+    line-height: 1.45;
+  }
+
+  .additional-list li::before {
+    content: "◆";
+    color: #3b82f6;
+    font-size: 0.5rem;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.8rem;
+    padding-bottom: 16px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .lang-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero h1 { font-size: 1.7rem; }
+    .card { padding: 24px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="avatar">TC</div>
+  <h1>Tiago Correia</h1>
+  <p class="subtitle">Project Manager and Product Manager</p>
+  <div class="hero-contacts">
+    <span>📍 Coimbra, Portugal</span>
+    <a href="mailto:correia.tiago@gmail.com">✉ correia.tiago@gmail.com</a>
+    <span>📞 +351 965 109 153</span>
+    <a href="https://linkedin.com/in/correia-tiago" target="_blank">🔗 linkedin.com/in/correia-tiago</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ABOUT -->
+  <div class="card about">
+    <h2>Introduction</h2>
+    <p>Project Manager and Product Manager with 6+ years at Void Software, delivering 10+ complex digital products across Insurance, AI/ML, IoT, e-commerce, sports tech and blockchain. Civil Engineering background with over 15 years of project delivery in international infrastructure and construction. Dual Portuguese/US citizen, fluent in Portuguese, English and Spanish. Comfortable operating at the intersection of business strategy, product design and engineering execution.</p>
+  </div>
+
+  <!-- CORE STRENGTHS -->
+  <div class="card">
+    <h2>Core Strengths</h2>
+    <ul class="strengths-list">
+      <li>Full lifecycle management, from discovery, execution, improvement and closure.</li>
+      <li>Technical fluency across SaaS, AI/ML, IoT, web/mobile apps and Blockchain products.</li>
+      <li>Dependency management, tracking and communication across business, engineering, product and design stakeholders.</li>
+      <li>Research with clients and end-users to translate real needs into a prioritised backlog.</li>
+      <li>Definition of roadmaps, user stories, acceptance criteria and backlog prioritisation.</li>
+      <li>Definition of user flows and interaction logic for different roles and scenarios.</li>
+      <li>Product improvement using analytics, KPIs and usability testing insights.</li>
+      <li>Agile (Scrum, Kanban, SAFe), Waterfall &amp; Hybrid methodologies.</li>
+      <li>Comfortable with engineering trade-offs on architecture, APIs and system constraints.</li>
+      <li>Delivery performance tracking, schedule control and risk monitoring.</li>
+      <li>Cost and schedule performance measurement with EVM metrics: CPI and SPI.</li>
+      <li>Active use of AI tools across the product lifecycle: discovery, prototyping and documentation.</li>
+    </ul>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="card">
+    <h2>Experience</h2>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-meta">Jan 2020 – Present</div>
+        <div class="tl-role">Project Manager / Product Manager</div>
+        <div class="tl-company">Void Software S.A.</div>
+        <div class="tl-desc">
+          <ul>
+            <li>Led cross-functional teams of 3–15 members across 10+ complex products delivered from concept to production.</li>
+            <li>Sectors: Insurance, AI/ML, IoT, e-commerce, sports tech and blockchain.</li>
+            <li>Key projects:
+              <ul style="margin-top:5px; margin-left:14px;">
+                <li><a href="https://www.bhout.com/" target="_blank">Bhout</a>: Smart boxing platform combining sensors, computer vision, mobile apps and backend services.</li>
+                <li><a href="https://www.boxcore.com/" target="_blank">Boxcore</a>: B2B SaaS platform for the construction industry with facial recognition, form builder and OCR for documents and workforce tracking.</li>
+                <li><a href="https://triaxle.com" target="_blank">Triaxle</a>: Mobile platform with marketplace for construction products.</li>
+                <li><a href="https://fluxesoftware.com/en" target="_blank">Fluxe</a>: AI-enabled insurance inspection SaaS platform.</li>
+                <li><a href="https://www.act.claims/" target="_blank">ACT (Advanced Claims Tech)</a>: ML-based roof detection and calculation solution.</li>
+                <li><a href="https://leiriamarket.pt/" target="_blank">Leiria Market</a>: E-commerce marketplace.</li>
+                <li><a href="https://map02.ipleiria.pt/" target="_blank">MAP02</a>: Healthcare platform for medication adherence, integrating a smart IoT dispenser, patient mobile app and healthcare professional dashboard.</li>
+                <li><a href="https://freshwood.eu/" target="_blank">Freshwood</a>: Sustainability and traceability solution involving IoT and blockchain-enabled workflows.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot prev"></div>
+        <div class="tl-meta">Sep 2019 – Jan 2020</div>
+        <div class="tl-role">Full-Stack Developer</div>
+        <div class="tl-company">Void Software S.A.</div>
+        <div class="tl-desc">
+          <ul>
+            <li>Built and maintained REST APIs and web application features.</li>
+            <li>Tech: Java, JavaScript, TypeScript, React, HTML, CSS, SQL, Docker and WebSockets.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot prev"></div>
+        <div class="tl-meta">May 2016 – Aug 2018</div>
+        <div class="tl-role">Civil Engineer</div>
+        <div class="tl-company">Freelancer</div>
+        <div class="tl-desc">
+          <ul>
+            <li>Supervision of civil works, design modifications, QA/QC and commissioning.</li>
+            <li>Projects: piping improvements for a wastewater treatment plant in Leiria; refurbishment of a 36-apartment condominium in Quiaios.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot prev"></div>
+        <div class="tl-meta">2008 – 2016</div>
+        <div class="tl-role">Construction Manager / Civil Supervisor</div>
+        <div class="tl-company">Wärtsilä Corporation</div>
+        <div class="tl-desc">
+          <ul>
+            <li>Construction management and civil supervision on international energy infrastructure projects across multiple countries, including Madeira (Portugal), Peru, Argentina, Gabon, Morocco, Cape Verde, Mozambique and South Africa.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot prev"></div>
+        <div class="tl-meta">Jan 2007 – Jul 2008</div>
+        <div class="tl-role">Production Manager</div>
+        <div class="tl-company">Bogas Construções Lda.</div>
+        <div class="tl-desc">
+          <ul>
+            <li>Project management, tendering, budgeting, planning and scheduling across all construction sites.</li>
+            <li>Projects: Several residential buildings and luxury houses.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot prev"></div>
+        <div class="tl-meta">Jun 2006 – Jan 2007</div>
+        <div class="tl-role">Site Manager</div>
+        <div class="tl-company">Tricivil S.A.</div>
+        <div class="tl-desc">
+          <ul>
+            <li>Planning and scheduling; supervision of materials, human resources and subcontractors; cost control.</li>
+            <li>Projects: supermarket (1,800 sqm) and three steel footbridges.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot prev"></div>
+        <div class="tl-meta">Mar 2003 – Aug 2005 &nbsp;(during graduation)</div>
+        <div class="tl-role">CAD Technician / Cost Estimator</div>
+        <div class="tl-company">Toporama Lda.</div>
+        <div class="tl-desc">
+          <ul>
+            <li>Design of concrete and steel structures, CAD drawings and cost estimates.</li>
+            <li>Projects: municipal buildings, an elementary school, houses and commercial stores.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="card">
+    <h2>Education &amp; Certifications</h2>
+    <div class="edu-grid">
+      <div class="edu-item">
+        <div class="edu-year">2025</div>
+        <div class="edu-degree">Agile/Scrum Project Management</div>
+        <div class="edu-institution">NERLEI, Business Association of the Leiria Region</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2020</div>
+        <div class="edu-degree">CSPO – Certified Scrum Product Owner</div>
+        <div class="edu-institution">Scrum Alliance</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2019</div>
+        <div class="edu-degree">Java Programming &amp; Software Development</div>
+        <div class="edu-institution">University of Coimbra</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2008</div>
+        <div class="edu-degree">Post-Graduation in Bridge Design</div>
+        <div class="edu-institution">Silesian University of Technology</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2007</div>
+        <div class="edu-degree">MSc Civil Engineering</div>
+        <div class="edu-institution">University of Coimbra</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2007</div>
+        <div class="edu-degree">Energy Performance of Buildings (EPBD) – RESECE/RCCTE</div>
+        <div class="edu-institution">Universidade de Coimbra</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOOLS & TECH -->
+  <div class="card">
+    <h2>Tools &amp; Tech</h2>
+    <div class="tools-section">
+
+      <div class="tool-group">
+        <div class="tool-group-label">Project Management</div>
+        <div class="tag-row">
+          <span class="tag">Jira</span>
+          <span class="tag">Confluence</span>
+          <span class="tag">MS Project</span>
+          <span class="tag">Trello</span>
+          <span class="tag">Youtrack</span>
+        </div>
+      </div>
+
+      <div class="tool-group">
+        <div class="tool-group-label">AI &amp; Dev Tools</div>
+        <div class="tag-row">
+          <span class="tag">Claude</span>
+          <span class="tag">Cursor</span>
+          <span class="tag">Codex</span>
+          <span class="tag">LLMs</span>
+          <span class="tag">Visual Studio Code</span>
+          <span class="tag">IntelliJ</span>
+          <span class="tag">Git</span>
+          <span class="tag">Jenkins</span>
+        </div>
+      </div>
+
+      <div class="tool-group">
+        <div class="tool-group-label">Analytics &amp; Customer Support</div>
+        <div class="tag-row">
+          <span class="tag">Google Analytics</span>
+          <span class="tag">Zendesk</span>
+          <span class="tag">Intercom</span>
+        </div>
+      </div>
+
+      <div class="tool-group">
+        <div class="tool-group-label">Design &amp; Prototyping</div>
+        <div class="tag-row">
+          <span class="tag">Figma</span>
+          <span class="tag">Adobe XD</span>
+          <span class="tag">Sketch</span>
+          <span class="tag">Draw.io</span>
+          <span class="tag">Canva</span>
+          <span class="tag">GIMP</span>
+          <span class="tag">AutoCAD</span>
+          <span class="tag">Autodesk Revit</span>
+        </div>
+      </div>
+
+      <div class="tool-group">
+        <div class="tool-group-label">APIs, Auth &amp; Commerce</div>
+        <div class="tag-row">
+          <span class="tag">Swagger/OpenAPI</span>
+          <span class="tag">Postman</span>
+          <span class="tag">Keycloak</span>
+          <span class="tag">OAuth</span>
+          <span class="tag">Stripe</span>
+          <span class="tag">PayPal</span>
+          <span class="tag">Google Maps</span>
+          <span class="tag">Mapbox</span>
+          <span class="tag">Shopify</span>
+        </div>
+      </div>
+
+      <div class="tool-group">
+        <div class="tool-group-label">Cloud &amp; Infrastructure</div>
+        <div class="tag-row">
+          <span class="tag">AWS</span>
+          <span class="tag">Docker</span>
+        </div>
+      </div>
+
+      <div class="tool-group">
+        <div class="tool-group-label">Web &amp; Code (working knowledge)</div>
+        <div class="tag-row">
+          <span class="tag muted">HTML</span>
+          <span class="tag muted">CSS</span>
+          <span class="tag muted">SQL</span>
+          <span class="tag muted">JavaScript</span>
+          <span class="tag muted">TypeScript</span>
+          <span class="tag muted">React</span>
+          <span class="tag muted">Java</span>
+        </div>
+      </div>
+
+      <div class="tool-group">
+        <div class="tool-group-label">Productivity &amp; OS</div>
+        <div class="tag-row">
+          <span class="tag muted">MS Office</span>
+          <span class="tag muted">LibreOffice</span>
+          <span class="tag muted">Pages</span>
+          <span class="tag muted">Numbers</span>
+          <span class="tag muted">Windows</span>
+          <span class="tag muted">Linux</span>
+          <span class="tag muted">macOS</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LANGUAGES -->
+  <div class="card">
+    <h2>Languages</h2>
+    <div class="lang-grid">
+      <div class="lang-item">
+        <div class="lang-name">Portuguese</div>
+        <div class="lang-level">Native (C2)</div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">English</div>
+        <div class="lang-level">Proficient (C1)</div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Spanish</div>
+        <div class="lang-level">Advanced (C1)</div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">French</div>
+        <div class="lang-level">Intermediate (B2)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- A BIT MORE -->
+  <div class="card">
+    <h2>A Bit More</h2>
+    <ul class="additional-list">
+      <li>Available to travel</li>
+      <li>Chartered member of the Ordem dos Engenheiros (Portuguese Engineers Institute)</li>
+      <li>Driving licence, Categories A, B and B1</li>
+      <li>Collaborator in Red Cross aid actions</li>
+      <li>PADI Certified Open Water Diver</li>
+      <li>Skydiving, AFF Level 1</li>
+      <li>Occasional tennis player</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>Tiago Correia &nbsp;·&nbsp; Coimbra, Portugal &nbsp;·&nbsp; <a href="mailto:correia.tiago@gmail.com" style="color:#94a3b8;">correia.tiago@gmail.com</a></p>
+</div>
+
+</body>
+</html>
